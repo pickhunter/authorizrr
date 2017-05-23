@@ -26,18 +26,18 @@ authorizrr.configure({
   // use the 'can' function to attach abilities to current user
   abilities: function(user, can) {
     if(user.role == 'beardsmen') {
-      can('manage', 'beardsmen');
+      can('grow', 'beard');
     }
   });
 
 app.get('/', function (req, res) {
-  res.json({ unprotected: true });
+  res.json({ cleanShaven: true });
 });
 
 // Now simply define what permissions a user would need to get through
 // Right besides the route. Expressive!
-app.get('/beardsmen', authorizrr.authorize('manage', 'beardsmen'), function(req, res, next) {
-  res.json({ authorized: true })
+app.get('/beardsmen', authorizrr.authorize('grow', 'beard'), function(req, res, next) {
+  res.json({ authorized: true, whenInDoubt: 'growItOut' })
 });
 
 app.listen(3000);
