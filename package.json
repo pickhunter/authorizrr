@@ -20,6 +20,9 @@
     "expressive",
     "easy"
   ],
+  "dependencies": {
+    "lodash": "^4.17.4"
+  },
   "author": "Rohit Garg <rohhittt@gmail.com>",
   "license": "ISC",
   "bugs": {
