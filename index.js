@@ -23,7 +23,7 @@ Object.assign(authorizer, {
   },
 
   onAuthFail: (req, res, next) => {
-    res.status(403).send();
+    res.status(401).send();
   },
 
   getAbilities: function (req){
@@ -40,7 +40,7 @@ Object.assign(authorizer, {
       
       bAuthorized && next();
 
-      !bAuthorized && this.onAuthFail(req, res, next);
+      !bAuthorized && this.onAuthFail(req, res, next, {action, resource});
     };
     
   },
