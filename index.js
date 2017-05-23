@@ -1,6 +1,5 @@
 const _     = require('lodash');
 
-
 let getAbilities = (req, abilityMaker, userGetter) => {
   let abilities = [];
   
@@ -26,7 +25,15 @@ Object.assign(authorizer, {
 
     abilitiesBy: function(abilityMakerFn) {
       this.abilityMaker = abilityMakerFn;
+    }.bind(authorizer),
+
+    authFailHandler: function(onAuthFailFn) {
+      this.onAuthFail = onAuthFailFn;
     }.bind(authorizer)
+  },
+
+  onAuthFail: (req, res, next) => {
+    res.status(403).send();
   },
 
   getAbilities: function (req){
@@ -43,7 +50,7 @@ Object.assign(authorizer, {
       
       bAuthorized && next();
 
-      !bAuthorized && next({status: 403});
+      !bAuthorized && this.onAuthFail(req, res, next);
     };
     
   },
