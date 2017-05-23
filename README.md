@@ -41,8 +41,6 @@ app.get('/beardsmen', authorizrr.authorize('manage', 'beardsmen'), function(req,
 app.listen(3000);
 ```
 
-
-----------
 ## Configuration / Options ##
 Authorizrr is configured by calling `configure` with the `options` object on the `authorizrr` singleton. Following options are availble:
 
