@@ -33,7 +33,9 @@ authorizrr.configure({
 app.get('/', function (req, res) {
   res.json({ unprotected: true });
 });
-  
+
+// Now simply define what permissions a user would need to get through
+// Right besides the route. Expressive!
 app.get('/beardsmen', authorizrr.authorize('manage', 'beardsmen'), function(req, res, next) {
   res.json({ authorized: true })
 });
