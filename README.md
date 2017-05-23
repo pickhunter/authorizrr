@@ -1,4 +1,4 @@
-Authorizr
+Authorizrr
 ===================
 Expressive Authorization middlewares for NodeJS/ExpressJS/ConnectJS apps
 
@@ -6,16 +6,16 @@ Expressive Authorization middlewares for NodeJS/ExpressJS/ConnectJS apps
 
 ## Installation ##
 ```sh
-npm install authorizr --save
+npm install authorizrr --save
 ```
 ## Quick Start ##
 ```js
 var express = require('express');
 var app = express();
-var authorizr = require('authorizr');
+var authorizrr = require('authorizrr');
 
-// Let Authorizr know about current user
-authorizr.configure.userBy((function(req) {
+// Let Authorizrr know about current user
+authorizrr.configure.userBy((function(req) {
   // Return user per request
   return { role: req.role };
 });
@@ -23,7 +23,7 @@ authorizr.configure.userBy((function(req) {
 // Decide current Users abilities
 // Pass a function which receives current user and a 'can' function
 // use the 'can' function to attach abilities to current user
-authorizr.configure.abilitiesBy(function(user, can) {
+authorizrr.configure.abilitiesBy(function(user, can) {
   if(user.role == 'beardsmen') {
     can('manage', 'beardsmen');
   }
@@ -33,7 +33,7 @@ app.get('/', function (req, res) {
   res.json({ public: true });
 });
   
-app.get('/beardsmen', authorizr.authorize('manage', 'beardsmen'), function(req, res, next) {
+app.get('/beardsmen', authorizrr.authorize('manage', 'beardsmen'), function(req, res, next) {
   res.json({ authorized: true })
 });
 
