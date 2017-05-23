@@ -18,18 +18,8 @@ let getAbilities = (req, abilityMaker, userGetter) => {
 let authorizer = {};
 
 Object.assign(authorizer, {
-  configure: {
-    userBy: function(userGetterFn) {
-      this.userGetter = userGetterFn;
-    }.bind(authorizer),
-
-    abilitiesBy: function(abilityMakerFn) {
-      this.abilityMaker = abilityMakerFn;
-    }.bind(authorizer),
-
-    authFailHandler: function(onAuthFailFn) {
-      this.onAuthFail = onAuthFailFn;
-    }.bind(authorizer)
+  configure: function(options) {
+    Object.assign(this, options);
   },
 
   onAuthFail: (req, res, next) => {
@@ -37,7 +27,7 @@ Object.assign(authorizer, {
   },
 
   getAbilities: function (req){
-    return getAbilities(req, this.abilityMaker, this.userGetter);
+    return getAbilities(req, this.abilities, this.user);
   },
 
   authorize: function(action, resource) {
