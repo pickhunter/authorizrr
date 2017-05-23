@@ -1,5 +1,5 @@
 {
-  "name": "authorizr",
+  "name": "authorizrr",
   "version": "1.0.0",
   "description": "Expressive Authorization middlewares for NodeJS/ExpressJS/ConnectJS apps",
   "main": "index.js",
