@@ -1,0 +1,29 @@
+{
+  "name": "authorizr",
+  "version": "1.0.0",
+  "description": "Expressive Authorization middlewares for NodeJS/ExpressJS/ConnectJS apps",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo '***TESTS PENDING***'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pickhunter/authorizr.git"
+  },
+  "keywords": [
+    "auth",
+    "authorization",
+    "authorisation",
+    "node",
+    "express",
+    "connect",
+    "expressive",
+    "easy"
+  ],
+  "author": "Rohit Garg <rohhittt@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pickhunter/authorizr/issues"
+  },
+  "homepage": "https://github.com/pickhunter/authorizr#readme"
+}
