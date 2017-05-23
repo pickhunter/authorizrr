@@ -21,7 +21,7 @@ authorizrr.configure({
     return { role: req.role };
   }),
 
-  // Decide current Users abilities
+  // Decide current user's abilities
   // Pass a function which receives current user and a 'can' function
   // use the 'can' function to attach abilities to current user
   abilities: function(user, can) {
