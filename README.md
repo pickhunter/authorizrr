@@ -1,6 +1,6 @@
 Authorizrr
 ===================
-Expressive Authorization middlewares for NodeJS/ExpressJS/ConnectJS apps
+Expressive Authorization middlewares for Express apps
 
 > **Note:** This is for *Authorization* **NOT Authentication**
 
